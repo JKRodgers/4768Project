@@ -43,19 +43,27 @@
 @synthesize session;
 
 - (void)viewDidLoad {
-     [super viewDidLoad];
-     // Do any additional setup after loading the view, typically from a nib.
-     //    self.textInput.delegate = self;
-     [self setUIToNotConnectedState];
-     //    originalViewFrame = self.view.frame;
+    [super viewDidLoad];
+    // Do any additional setup after loading the view, typically from a nib.
+    //    self.textInput.delegate = self;
+    [self setUIToNotConnectedState];
+    //    originalViewFrame = self.view.frame;
      
-     ImageBubbleView *flowerImageBubbleView =
-     [[ImageBubbleView alloc] initWithImage:[UIImage imageNamed:@"YouDontSay"] withDirection:ViewLeft atSize:IMAGE_SIZE];
+    ImageBubbleView *chatImageRecieved =
+    [[ImageBubbleView alloc] initWithImage:[UIImage imageNamed:@"YouDontSay"] withDirection:ViewLeft atSize:IMAGE_SIZE];
      
-     [flowerImageBubbleView sizeToFit];
-     flowerImageBubbleView.frame = CGRectMake(MARGIN, 60 + MARGIN, flowerImageBubbleView.frame.size.width, flowerImageBubbleView.frame.size.height);
+    [chatImageRecieved sizeToFit];
+    chatImageRecieved.frame = CGRectMake(MARGIN, 60 + MARGIN, chatImageRecieved.frame.size.width, chatImageRecieved.frame.size.height);
      
-     [self.view addSubview:flowerImageBubbleView];
+    [self.view addSubview:chatImageRecieved];
+    
+    ImageBubbleView *chatImageSent =
+    [[ImageBubbleView alloc] initWithImage:[UIImage imageNamed:@"AintNobody"] withDirection:ViewRight atSize:IMAGE_SIZE];
+    
+    [chatImageSent sizeToFit];
+    chatImageSent.frame = CGRectMake(self.view.frame.size.width - chatImageRecieved.frame.size.width - MARGIN, chatImageRecieved.frame.origin.y + chatImageSent.bounds.size.height + MARGIN, chatImageSent.frame.size.width, chatImageSent.frame.size.height);
+    
+    [self.view addSubview:chatImageSent];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWillShow:)

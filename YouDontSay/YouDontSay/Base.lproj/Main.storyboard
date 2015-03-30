@@ -88,7 +88,7 @@
                             <outlet property="delegate" destination="TCb-Pn-fv7" id="IqF-47-GVd"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Photos" id="Wh9-Xn-L1q"/>
+                    <tabBarItem key="tabBarItem" title="Photos" image="second" selectedImage="second" id="Wh9-Xn-L1q"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KtH-fv-R4s" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -97,5 +97,6 @@
     </scenes>
     <resources>
         <image name="first" width="30" height="30"/>
+        <image name="second" width="30" height="30"/>
     </resources>
 </document>
