@@ -19,8 +19,9 @@
     }
 }
 
-- (void) viewWillAppear:(BOOL)animated  {
-    
+- (void) viewDidLoad  {
+
+    [super viewDidLoad];
     // collect the photos
     NSMutableArray *collector = [[NSMutableArray alloc] initWithCapacity:0];
     ALAssetsLibrary *al = [TableViewController defaultAssetsLibrary];
@@ -36,6 +37,7 @@
           }];
          
          self.photos = collector;
+         NSLog(@"count: %d", [self.photos count]);
      }
                     failureBlock:^(NSError *error) { NSLog(@"Boom!!!");}
      ];
@@ -46,7 +48,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

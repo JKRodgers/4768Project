@@ -67,10 +67,10 @@
             </objects>
             <point key="canvasLocation" x="0.0" y="0.0"/>
         </scene>
-        <!--Item-->
+        <!--Photos-->
         <scene sceneID="QCs-fY-m4A">
             <objects>
-                <tableViewController id="TCb-Pn-fv7" sceneMemberID="viewController">
+                <tableViewController id="TCb-Pn-fv7" customClass="TableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="4tq-Wc-NQu">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -88,7 +88,7 @@
                             <outlet property="delegate" destination="TCb-Pn-fv7" id="IqF-47-GVd"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Item" id="Wh9-Xn-L1q"/>
+                    <tabBarItem key="tabBarItem" title="Photos" id="Wh9-Xn-L1q"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KtH-fv-R4s" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
