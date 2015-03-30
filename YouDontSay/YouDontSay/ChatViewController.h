@@ -11,7 +11,7 @@
 
 #define SERVICE_TYPE @"YouDontSay"
 
-@interface ChatViewController : UIViewController <UITextFieldDelegate, MCSessionDelegate, MCBrowserViewControllerDelegate>
+@interface ChatViewController : UIViewController <MCSessionDelegate, MCBrowserViewControllerDelegate>
 
 @end
 
