@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6B33AC3C1AC9BD79006F4A6C /* ImageBubbleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B33AC3B1AC9BD79006F4A6C /* ImageBubbleView.m */; };
+		6B33AC421AC9C104006F4A6C /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B33AC411AC9C104006F4A6C /* Utils.m */; };
+		6B33AC4B1AC9D397006F4A6C /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B33AC4A1AC9D397006F4A6C /* ChatViewController.m */; };
+		6B33AC511AC9D7E4006F4A6C /* ImageSquare.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B33AC501AC9D7E4006F4A6C /* ImageSquare.png */; };
+		6B33AC551AC9DB7D006F4A6C /* YouDontSay.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B33AC541AC9DB7D006F4A6C /* YouDontSay.png */; };
 		6B90ED0C1AC4937F0082361F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B90ED0B1AC4937F0082361F /* main.m */; };
 		6B90ED0F1AC4937F0082361F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B90ED0E1AC4937F0082361F /* AppDelegate.m */; };
 		6B90ED151AC4937F0082361F /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B90ED141AC4937F0082361F /* SecondViewController.m */; };
@@ -14,7 +19,6 @@
 		6B90ED1A1AC493800082361F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6B90ED191AC493800082361F /* Images.xcassets */; };
 		6B90ED1D1AC493800082361F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B90ED1B1AC493800082361F /* LaunchScreen.xib */; };
 		6B90ED291AC493800082361F /* YouDontSayTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B90ED281AC493800082361F /* YouDontSayTests.m */; };
-		6BD423481AC9ACBC00338801 /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BD423471AC9ACBC00338801 /* ChatViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,6 +32,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6B33AC3A1AC9BC9A006F4A6C /* ImageBubbleView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ImageBubbleView.h; path = ../../../../../../../Users/labnet3/st3/jkr332/4768Project/YouDontSay/YouDontSay/ImageBubbleView.h; sourceTree = "<group>"; };
+		6B33AC3B1AC9BD79006F4A6C /* ImageBubbleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageBubbleView.m; path = ../../../../../../../Users/labnet3/st3/jkr332/4768Project/YouDontSay/YouDontSay/ImageBubbleView.m; sourceTree = "<group>"; };
+		6B33AC401AC9C0F1006F4A6C /* Utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Utils.h; path = ../../../../../../../Users/labnet3/st3/jkr332/4768Project/YouDontSay/YouDontSay/Utils.h; sourceTree = "<group>"; };
+		6B33AC411AC9C104006F4A6C /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Utils.m; path = ../../../../../../../Users/labnet3/st3/jkr332/4768Project/YouDontSay/YouDontSay/Utils.m; sourceTree = "<group>"; };
+		6B33AC491AC9D397006F4A6C /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
+		6B33AC4A1AC9D397006F4A6C /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
+		6B33AC501AC9D7E4006F4A6C /* ImageSquare.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ImageSquare.png; sourceTree = "<group>"; };
+		6B33AC541AC9DB7D006F4A6C /* YouDontSay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = YouDontSay.png; sourceTree = "<group>"; };
 		6B90ED061AC4937F0082361F /* YouDontSay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YouDontSay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B90ED0A1AC4937F0082361F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6B90ED0B1AC4937F0082361F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -41,8 +53,6 @@
 		6B90ED221AC493800082361F /* YouDontSayTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YouDontSayTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B90ED271AC493800082361F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6B90ED281AC493800082361F /* YouDontSayTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YouDontSayTests.m; sourceTree = "<group>"; };
-		6BD423461AC9ACBC00338801 /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChatViewController.h; path = ../ChatViewController.h; sourceTree = "<group>"; };
-		6BD423471AC9ACBC00338801 /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChatViewController.m; path = ../ChatViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,9 +73,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6B33AC4F1AC9D7CB006F4A6C /* img */ = {
+			isa = PBXGroup;
+			children = (
+				6B33AC541AC9DB7D006F4A6C /* YouDontSay.png */,
+				6B33AC501AC9D7E4006F4A6C /* ImageSquare.png */,
+			);
+			name = img;
+			path = YouDontSay;
+			sourceTree = "<group>";
+		};
 		6B90ECFD1AC4937F0082361F = {
 			isa = PBXGroup;
 			children = (
+				6B33AC4F1AC9D7CB006F4A6C /* img */,
 				6B90ED081AC4937F0082361F /* YouDontSay */,
 				6B90ED251AC493800082361F /* YouDontSayTests */,
 				6B90ED071AC4937F0082361F /* Products */,
@@ -84,10 +105,14 @@
 		6B90ED081AC4937F0082361F /* YouDontSay */ = {
 			isa = PBXGroup;
 			children = (
+				6B33AC491AC9D397006F4A6C /* ChatViewController.h */,
+				6B33AC4A1AC9D397006F4A6C /* ChatViewController.m */,
 				6B90ED0D1AC4937F0082361F /* AppDelegate.h */,
 				6B90ED0E1AC4937F0082361F /* AppDelegate.m */,
-				6BD423461AC9ACBC00338801 /* ChatViewController.h */,
-				6BD423471AC9ACBC00338801 /* ChatViewController.m */,
+				6B33AC3A1AC9BC9A006F4A6C /* ImageBubbleView.h */,
+				6B33AC3B1AC9BD79006F4A6C /* ImageBubbleView.m */,
+				6B33AC401AC9C0F1006F4A6C /* Utils.h */,
+				6B33AC411AC9C104006F4A6C /* Utils.m */,
 				6B90ED131AC4937F0082361F /* SecondViewController.h */,
 				6B90ED141AC4937F0082361F /* SecondViewController.m */,
 				6B90ED161AC4937F0082361F /* Main.storyboard */,
@@ -204,8 +229,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B33AC551AC9DB7D006F4A6C /* YouDontSay.png in Resources */,
 				6B90ED181AC4937F0082361F /* Main.storyboard in Resources */,
 				6B90ED1D1AC493800082361F /* LaunchScreen.xib in Resources */,
+				6B33AC511AC9D7E4006F4A6C /* ImageSquare.png in Resources */,
 				6B90ED1A1AC493800082361F /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -226,7 +253,9 @@
 			files = (
 				6B90ED151AC4937F0082361F /* SecondViewController.m in Sources */,
 				6B90ED0F1AC4937F0082361F /* AppDelegate.m in Sources */,
-				6BD423481AC9ACBC00338801 /* ChatViewController.m in Sources */,
+				6B33AC4B1AC9D397006F4A6C /* ChatViewController.m in Sources */,
+				6B33AC3C1AC9BD79006F4A6C /* ImageBubbleView.m in Sources */,
+				6B33AC421AC9C104006F4A6C /* Utils.m in Sources */,
 				6B90ED0C1AC4937F0082361F /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
