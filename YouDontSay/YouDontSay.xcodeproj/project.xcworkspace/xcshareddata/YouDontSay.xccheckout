@@ -6,19 +6,15 @@
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>F62650CD-A79B-4B7A-9419-8F85B890462D</string>
-	<key>IDESourceControlProjectName</key>
-	<string>YouDontSay</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>E654D9439D33EE53A9A9FAE38ACBB72389AEC0BE</key>
 		<string>https://github.com/JKRodgers/4768Project.git</string>
 	</dict>
-	<key>IDESourceControlProjectPath</key>
-	<string>YouDontSay/YouDontSay.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>E654D9439D33EE53A9A9FAE38ACBB72389AEC0BE</key>
-		<string>../../..</string>
+		<string>4768Project/</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/JKRodgers/4768Project.git</string>

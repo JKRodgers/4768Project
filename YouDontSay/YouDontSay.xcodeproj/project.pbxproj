@@ -9,12 +9,12 @@
 /* Begin PBXBuildFile section */
 		6B90ED0C1AC4937F0082361F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B90ED0B1AC4937F0082361F /* main.m */; };
 		6B90ED0F1AC4937F0082361F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B90ED0E1AC4937F0082361F /* AppDelegate.m */; };
-		6B90ED121AC4937F0082361F /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B90ED111AC4937F0082361F /* FirstViewController.m */; };
 		6B90ED151AC4937F0082361F /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B90ED141AC4937F0082361F /* SecondViewController.m */; };
 		6B90ED181AC4937F0082361F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B90ED161AC4937F0082361F /* Main.storyboard */; };
 		6B90ED1A1AC493800082361F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6B90ED191AC493800082361F /* Images.xcassets */; };
 		6B90ED1D1AC493800082361F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B90ED1B1AC493800082361F /* LaunchScreen.xib */; };
 		6B90ED291AC493800082361F /* YouDontSayTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B90ED281AC493800082361F /* YouDontSayTests.m */; };
+		6BD423481AC9ACBC00338801 /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BD423471AC9ACBC00338801 /* ChatViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,8 +33,6 @@
 		6B90ED0B1AC4937F0082361F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6B90ED0D1AC4937F0082361F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6B90ED0E1AC4937F0082361F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		6B90ED101AC4937F0082361F /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
-		6B90ED111AC4937F0082361F /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
 		6B90ED131AC4937F0082361F /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
 		6B90ED141AC4937F0082361F /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		6B90ED171AC4937F0082361F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -43,6 +41,8 @@
 		6B90ED221AC493800082361F /* YouDontSayTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YouDontSayTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B90ED271AC493800082361F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6B90ED281AC493800082361F /* YouDontSayTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YouDontSayTests.m; sourceTree = "<group>"; };
+		6BD423461AC9ACBC00338801 /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChatViewController.h; path = ../ChatViewController.h; sourceTree = "<group>"; };
+		6BD423471AC9ACBC00338801 /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChatViewController.m; path = ../ChatViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,8 +86,8 @@
 			children = (
 				6B90ED0D1AC4937F0082361F /* AppDelegate.h */,
 				6B90ED0E1AC4937F0082361F /* AppDelegate.m */,
-				6B90ED101AC4937F0082361F /* FirstViewController.h */,
-				6B90ED111AC4937F0082361F /* FirstViewController.m */,
+				6BD423461AC9ACBC00338801 /* ChatViewController.h */,
+				6BD423471AC9ACBC00338801 /* ChatViewController.m */,
 				6B90ED131AC4937F0082361F /* SecondViewController.h */,
 				6B90ED141AC4937F0082361F /* SecondViewController.m */,
 				6B90ED161AC4937F0082361F /* Main.storyboard */,
@@ -226,7 +226,7 @@
 			files = (
 				6B90ED151AC4937F0082361F /* SecondViewController.m in Sources */,
 				6B90ED0F1AC4937F0082361F /* AppDelegate.m in Sources */,
-				6B90ED121AC4937F0082361F /* FirstViewController.m in Sources */,
+				6BD423481AC9ACBC00338801 /* ChatViewController.m in Sources */,
 				6B90ED0C1AC4937F0082361F /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -352,6 +352,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = YouDontSay/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -362,6 +363,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = YouDontSay/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -420,6 +422,7 @@
 				6B90ED2E1AC493800082361F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6B90ED2F1AC493800082361F /* Build configuration list for PBXNativeTarget "YouDontSayTests" */ = {
 			isa = XCConfigurationList;
@@ -428,6 +431,7 @@
 				6B90ED311AC493800082361F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
