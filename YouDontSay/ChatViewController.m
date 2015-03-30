@@ -7,6 +7,10 @@
 //
 
 #import "ChatViewController.h"
+#import "ImageBubbleView.h"
+
+#define MARGIN 10.0f
+#define IMAGE_SIZE CGSizeMake(100,100)
 
 @interface ChatViewController ()
 {
@@ -39,11 +43,19 @@
 @synthesize session;
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-    self.textInput.delegate = self;
-    [self setUIToNotConnectedState];
-    originalViewFrame = self.view.frame;
+     [super viewDidLoad];
+     // Do any additional setup after loading the view, typically from a nib.
+     //    self.textInput.delegate = self;
+     [self setUIToNotConnectedState];
+     //    originalViewFrame = self.view.frame;
+     
+     ImageBubbleView *flowerImageBubbleView =
+     [[ImageBubbleView alloc] initWithImage:[UIImage imageNamed:@"YouDontSay"] withDirection:ViewLeft atSize:IMAGE_SIZE];
+     
+     [flowerImageBubbleView sizeToFit];
+     flowerImageBubbleView.frame = CGRectMake(MARGIN, 60 + MARGIN, flowerImageBubbleView.frame.size.width, flowerImageBubbleView.frame.size.height);
+     
+     [self.view addSubview:flowerImageBubbleView];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWillShow:)
