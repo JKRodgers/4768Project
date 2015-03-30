@@ -15,6 +15,7 @@
 		6B90ED1D1AC493800082361F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B90ED1B1AC493800082361F /* LaunchScreen.xib */; };
 		6B90ED291AC493800082361F /* YouDontSayTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B90ED281AC493800082361F /* YouDontSayTests.m */; };
 		6BD423481AC9ACBC00338801 /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BD423471AC9ACBC00338801 /* ChatViewController.m */; };
+		B42917F91AC9C7CC008E9953 /* SecondViewAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B42917F81AC9C7CC008E9953 /* SecondViewAppDelegate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,8 @@
 		6B90ED281AC493800082361F /* YouDontSayTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YouDontSayTests.m; sourceTree = "<group>"; };
 		6BD423461AC9ACBC00338801 /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChatViewController.h; path = ../ChatViewController.h; sourceTree = "<group>"; };
 		6BD423471AC9ACBC00338801 /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChatViewController.m; path = ../ChatViewController.m; sourceTree = "<group>"; };
+		B42917F71AC9C7A6008E9953 /* SecondViewAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SecondViewAppDelegate.h; path = ../../../../../../../Users/labnet3/st5/cjh260/4768Project/YouDontSay/YouDontSay/SecondViewAppDelegate.h; sourceTree = "<group>"; };
+		B42917F81AC9C7CC008E9953 /* SecondViewAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SecondViewAppDelegate.m; path = ../../../../../../../Users/labnet3/st5/cjh260/4768Project/YouDontSay/YouDontSay/SecondViewAppDelegate.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +89,8 @@
 			children = (
 				6B90ED0D1AC4937F0082361F /* AppDelegate.h */,
 				6B90ED0E1AC4937F0082361F /* AppDelegate.m */,
+				B42917F71AC9C7A6008E9953 /* SecondViewAppDelegate.h */,
+				B42917F81AC9C7CC008E9953 /* SecondViewAppDelegate.m */,
 				6BD423461AC9ACBC00338801 /* ChatViewController.h */,
 				6BD423471AC9ACBC00338801 /* ChatViewController.m */,
 				6B90ED131AC4937F0082361F /* SecondViewController.h */,
@@ -228,6 +233,7 @@
 				6B90ED0F1AC4937F0082361F /* AppDelegate.m in Sources */,
 				6BD423481AC9ACBC00338801 /* ChatViewController.m in Sources */,
 				6B90ED0C1AC4937F0082361F /* main.m in Sources */,
+				B42917F91AC9C7CC008E9953 /* SecondViewAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SecondViewController : UIViewController
+@interface SecondViewController : UITableViewController{
+    NSMutableArray *myImages;
+}
 
+@property (nonatomic, retain) NSMutableArray *myImages;
 
 @end
 
