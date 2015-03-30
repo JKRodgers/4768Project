@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AssetsLibrary/AssetsLibrary.h>
 
-@interface SecondViewController : UIViewController
-
-
+@interface TableViewController : UITableViewController
+@property (nonatomic, strong) NSArray *photos;
++ (ALAssetsLibrary *)defaultAssetsLibrary;
 @end
 
