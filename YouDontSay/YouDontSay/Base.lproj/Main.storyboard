@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -15,7 +16,7 @@
                         <viewControllerLayoutGuide type="bottom" id="4ug-Mw-9AY"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xJP-dW-8ka">
@@ -39,6 +40,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                     <tabBarItem key="tabBarItem" title="Main" image="first" id="acW-dT-cKf"/>
                     <connections>
                         <outlet property="browseButton" destination="xJP-dW-8ka" id="LpL-Z9-Qcj"/>
@@ -53,6 +55,7 @@
         <scene sceneID="yl2-sM-qoP">
             <objects>
                 <tabBarController id="49e-Tb-3d3" sceneMemberID="viewController">
+                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
@@ -68,7 +71,7 @@
             </objects>
             <point key="canvasLocation" x="0.0" y="0.0"/>
         </scene>
-        <!--Item-->
+        <!--MyPhotos-->
         <scene sceneID="WbZ-SP-7od">
             <objects>
                 <viewController id="YId-aK-sPB" customClass="PhotoPickerViewController" sceneMemberID="viewController">
@@ -77,12 +80,9 @@
                         <viewControllerLayoutGuide type="bottom" id="Ye6-iT-nZg"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="C0e-ZE-uKc">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8aP-jU-kit">
-                                <rect key="frame" x="56" y="14" width="491" height="439"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eza-PW-EZb">
                                 <rect key="frame" x="414" y="475" width="133" height="30"/>
                                 <state key="normal" title="Take Photo">
@@ -110,40 +110,100 @@
                                     <action selector="getPhoto:" destination="YId-aK-sPB" eventType="touchUpInside" id="vDg-fT-PZj"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8aP-jU-kit">
+                                <rect key="frame" x="55" y="20" width="491" height="439"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="8aP-jU-kit" secondAttribute="height" multiplier="491:439" id="16C-e6-Pa3"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="16C-e6-Pa3"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Ye6-iT-nZg" firstAttribute="top" secondItem="8tJ-0J-Apg" secondAttribute="bottom" constant="8" id="0hy-xs-BrU"/>
-                            <constraint firstItem="8tJ-0J-Apg" firstAttribute="height" secondItem="LKZ-7C-6Ed" secondAttribute="height" id="5QY-9X-Tco"/>
                             <constraint firstItem="Ye6-iT-nZg" firstAttribute="top" secondItem="eza-PW-EZb" secondAttribute="bottom" constant="8" id="6Cr-mA-Er5"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="8aP-jU-kit" secondAttribute="trailing" id="6iZ-Gg-rDs"/>
+                            <constraint firstAttribute="width" secondItem="8aP-jU-kit" secondAttribute="height" multiplier="600:439" id="843-pC-btP"/>
+                            <constraint firstItem="Ye6-iT-nZg" firstAttribute="top" secondItem="8tJ-0J-Apg" secondAttribute="bottom" constant="8" id="8f2-cs-DmZ"/>
                             <constraint firstItem="eza-PW-EZb" firstAttribute="height" secondItem="8tJ-0J-Apg" secondAttribute="height" id="AVd-0R-Tdk"/>
                             <constraint firstItem="8tJ-0J-Apg" firstAttribute="width" secondItem="eza-PW-EZb" secondAttribute="width" id="B5M-tQ-BVc"/>
                             <constraint firstItem="8aP-jU-kit" firstAttribute="leading" secondItem="C0e-ZE-uKc" secondAttribute="leadingMargin" constant="8" id="BD4-Yx-bWO"/>
+                            <constraint firstItem="LKZ-7C-6Ed" firstAttribute="leading" secondItem="8tJ-0J-Apg" secondAttribute="trailing" id="BLS-Rl-0uc"/>
                             <constraint firstItem="8tJ-0J-Apg" firstAttribute="width" secondItem="LKZ-7C-6Ed" secondAttribute="width" id="CtD-7t-0uB"/>
+                            <constraint firstItem="Ye6-iT-nZg" firstAttribute="top" secondItem="LKZ-7C-6Ed" secondAttribute="bottom" constant="46" id="JVC-US-kxb"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="eza-PW-EZb" secondAttribute="trailing" id="Kc9-LR-bGL"/>
                             <constraint firstItem="8tJ-0J-Apg" firstAttribute="height" secondItem="eza-PW-EZb" secondAttribute="height" id="MBm-CH-njG"/>
+                            <constraint firstItem="eza-PW-EZb" firstAttribute="width" secondItem="8tJ-0J-Apg" secondAttribute="width" id="O5f-JI-DW7"/>
+                            <constraint firstItem="8tJ-0J-Apg" firstAttribute="leading" secondItem="C0e-ZE-uKc" secondAttribute="leadingMargin" id="RNI-GI-Dkh"/>
                             <constraint firstItem="8aP-jU-kit" firstAttribute="top" secondItem="C0e-ZE-uKc" secondAttribute="topMargin" constant="8" id="SDe-Gt-gir"/>
+                            <constraint firstItem="eza-PW-EZb" firstAttribute="height" secondItem="LKZ-7C-6Ed" secondAttribute="height" id="Vgw-hl-vv6"/>
+                            <constraint firstItem="eza-PW-EZb" firstAttribute="height" secondItem="8tJ-0J-Apg" secondAttribute="height" id="Ws8-b0-Ufz"/>
                             <constraint firstItem="LKZ-7C-6Ed" firstAttribute="centerY" secondItem="8aP-jU-kit" secondAttribute="centerY" id="XJW-ze-vGe"/>
+                            <constraint firstItem="8tJ-0J-Apg" firstAttribute="leading" secondItem="C0e-ZE-uKc" secondAttribute="leadingMargin" constant="8" id="YCS-nS-JTz"/>
                             <constraint firstItem="8tJ-0J-Apg" firstAttribute="leading" secondItem="C0e-ZE-uKc" secondAttribute="leadingMargin" constant="8" id="YsZ-7V-lgD"/>
-                            <constraint firstItem="8aP-jU-kit" firstAttribute="leading" secondItem="C0e-ZE-uKc" secondAttribute="leadingMargin" constant="8" id="czM-Dv-95H"/>
+                            <constraint firstItem="8aP-jU-kit" firstAttribute="leading" secondItem="C0e-ZE-uKc" secondAttribute="leadingMargin" id="ZC2-Uo-uAC"/>
+                            <constraint firstItem="eza-PW-EZb" firstAttribute="leading" secondItem="LKZ-7C-6Ed" secondAttribute="trailing" constant="49" id="ZaI-A7-WSl"/>
+                            <constraint firstItem="8aP-jU-kit" firstAttribute="top" secondItem="fcj-Ji-Ph2" secondAttribute="bottom" id="cA4-m7-EGp"/>
                             <constraint firstItem="Ye6-iT-nZg" firstAttribute="top" secondItem="LKZ-7C-6Ed" secondAttribute="bottom" constant="8" id="ejf-Sr-PrG"/>
+                            <constraint firstItem="8aP-jU-kit" firstAttribute="top" secondItem="fcj-Ji-Ph2" secondAttribute="bottom" id="ek1-17-Qc9"/>
+                            <constraint firstItem="eza-PW-EZb" firstAttribute="leading" secondItem="LKZ-7C-6Ed" secondAttribute="trailing" id="fZD-ub-emE"/>
+                            <constraint firstItem="Ye6-iT-nZg" firstAttribute="top" secondItem="8tJ-0J-Apg" secondAttribute="bottom" constant="46" id="gBU-nz-LAZ"/>
                             <constraint firstItem="LKZ-7C-6Ed" firstAttribute="leading" secondItem="8tJ-0J-Apg" secondAttribute="trailing" id="gpx-0D-OKC"/>
+                            <constraint firstItem="eza-PW-EZb" firstAttribute="top" secondItem="LKZ-7C-6Ed" secondAttribute="top" id="hW5-Rx-nqp"/>
+                            <constraint firstItem="LKZ-7C-6Ed" firstAttribute="leading" secondItem="8tJ-0J-Apg" secondAttribute="trailing" constant="25" id="iEp-XR-leH"/>
+                            <constraint firstItem="eza-PW-EZb" firstAttribute="top" secondItem="8tJ-0J-Apg" secondAttribute="top" id="kJO-bN-eCE"/>
                             <constraint firstAttribute="trailingMargin" secondItem="8aP-jU-kit" secondAttribute="trailing" constant="8" id="krh-DC-wtl"/>
                             <constraint firstAttribute="trailingMargin" secondItem="eza-PW-EZb" secondAttribute="trailing" constant="8" id="n6Z-CB-bpJ"/>
+                            <constraint firstItem="8tJ-0J-Apg" firstAttribute="top" secondItem="8aP-jU-kit" secondAttribute="bottom" constant="16" id="nTF-Y4-gG6"/>
                             <constraint firstItem="8aP-jU-kit" firstAttribute="top" secondItem="C0e-ZE-uKc" secondAttribute="topMargin" constant="8" id="qHo-N0-k9i"/>
                             <constraint firstItem="eza-PW-EZb" firstAttribute="width" secondItem="8tJ-0J-Apg" secondAttribute="width" id="rDv-xk-OuM"/>
+                            <constraint firstItem="eza-PW-EZb" firstAttribute="width" secondItem="LKZ-7C-6Ed" secondAttribute="width" id="rNn-6O-737"/>
                             <constraint firstItem="Ye6-iT-nZg" firstAttribute="top" secondItem="LKZ-7C-6Ed" secondAttribute="bottom" constant="8" id="syX-fL-bK3"/>
                             <constraint firstItem="eza-PW-EZb" firstAttribute="leading" secondItem="LKZ-7C-6Ed" secondAttribute="trailing" id="x6X-4R-YQT"/>
+                            <constraint firstItem="Ye6-iT-nZg" firstAttribute="top" secondItem="LKZ-7C-6Ed" secondAttribute="bottom" id="xTI-Ov-QNf"/>
                             <constraint firstAttribute="trailingMargin" secondItem="8aP-jU-kit" secondAttribute="trailing" constant="8" id="xUZ-nc-VbL"/>
+                            <constraint firstItem="8tJ-0J-Apg" firstAttribute="top" secondItem="8aP-jU-kit" secondAttribute="bottom" constant="16" id="xeB-eD-MEh"/>
+                            <constraint firstItem="Ye6-iT-nZg" firstAttribute="top" secondItem="8tJ-0J-Apg" secondAttribute="bottom" id="yH3-sm-vG6"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="843-pC-btP"/>
+                                <exclude reference="BD4-Yx-bWO"/>
+                                <exclude reference="SDe-Gt-gir"/>
+                                <exclude reference="krh-DC-wtl"/>
+                                <exclude reference="qHo-N0-k9i"/>
+                                <exclude reference="xUZ-nc-VbL"/>
+                                <exclude reference="B5M-tQ-BVc"/>
+                                <exclude reference="CtD-7t-0uB"/>
+                                <exclude reference="MBm-CH-njG"/>
+                                <exclude reference="YCS-nS-JTz"/>
+                                <exclude reference="YsZ-7V-lgD"/>
+                                <exclude reference="nTF-Y4-gG6"/>
                                 <exclude reference="XJW-ze-vGe"/>
+                                <exclude reference="gpx-0D-OKC"/>
+                                <exclude reference="iEp-XR-leH"/>
+                                <exclude reference="0hy-xs-BrU"/>
+                                <exclude reference="6Cr-mA-Er5"/>
+                                <exclude reference="8f2-cs-DmZ"/>
+                                <exclude reference="JVC-US-kxb"/>
+                                <exclude reference="ejf-Sr-PrG"/>
+                                <exclude reference="gBU-nz-LAZ"/>
+                                <exclude reference="syX-fL-bK3"/>
+                                <exclude reference="xTI-Ov-QNf"/>
                                 <exclude reference="AVd-0R-Tdk"/>
+                                <exclude reference="ZaI-A7-WSl"/>
+                                <exclude reference="n6Z-CB-bpJ"/>
                                 <exclude reference="rDv-xk-OuM"/>
+                                <exclude reference="x6X-4R-YQT"/>
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="hnZ-FW-aSd"/>
+                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
+                    <tabBarItem key="tabBarItem" title="MyPhotos" image="second" id="hnZ-FW-aSd"/>
                     <connections>
                         <outlet property="choosePhotoBtn" destination="8tJ-0J-Apg" id="49O-gj-Hpe"/>
                         <outlet property="imageView" destination="8aP-jU-kit" id="afd-ap-IrM"/>
@@ -153,10 +213,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k3j-eF-0P2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="501" y="381"/>
+            <point key="canvasLocation" x="750" y="335"/>
         </scene>
     </scenes>
     <resources>
         <image name="first" width="30" height="30"/>
+        <image name="second" width="30" height="30"/>
     </resources>
 </document>
