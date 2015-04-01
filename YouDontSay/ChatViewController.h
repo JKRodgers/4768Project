@@ -12,7 +12,7 @@
 
 #define SERVICE_TYPE @"YouDontSay"
 
-@interface ChatViewController : UIViewController <UIScrollViewDelegate, MCSessionDelegate, MCBrowserViewControllerDelegate, ImageDelegate>
+@interface ChatViewController : UIViewController <UIScrollViewDelegate, UIGestureRecognizerDelegate, MCSessionDelegate, MCBrowserViewControllerDelegate, ImageDelegate>
 
 @end
 

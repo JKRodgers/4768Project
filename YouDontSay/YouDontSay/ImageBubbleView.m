@@ -19,7 +19,6 @@
 @interface ImageBubbleView ()
 
 @property (nonatomic, assign) UIEdgeInsets contentInsets;
-@property (nonatomic, retain) UIImageView *bubbleImageView;
 @property (nonatomic, retain) UIImageView *backgroundImageView;
 @property (nonatomic, retain) UIImage *backgroundImageNormal;
 @property (nonatomic, retain) UIImage *backgroundImageHighlighted;
@@ -42,6 +41,7 @@
 {
     if (self = [super init])
     {
+        self.image = image;
         self.imageSize = size;
         const UIEdgeInsets insets = UIEdgeInsetsMake(13, 13, 13, 21);
         
@@ -62,6 +62,7 @@
     
     return self;
 }
+
 
 -(void) didStartSelect
 {

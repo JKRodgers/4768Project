@@ -16,6 +16,8 @@ typedef enum
     ViewLeft = 1
 } ViewDirection;
 
+@property (nonatomic, assign) UIImage *image;
+
 - (id) initWithImage:(UIImage *) image
        withDirection:(ViewDirection) direction
               atSize:(CGSize) size;

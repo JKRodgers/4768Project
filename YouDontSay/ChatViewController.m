@@ -18,8 +18,12 @@
 {
     CGRect originalViewFrame;
     GLfloat lastMessageY;
+    GLfloat viewWidth;
+    GLfloat viewHeight;
     
-    UIImageView *imageToSend;
+    UITapGestureRecognizer *tap;
+    BOOL isFullScreen;
+    CGRect prevFrame;
 }
 @property (weak, nonatomic) IBOutlet UIButton *sendButton;
 @property (weak, nonatomic) IBOutlet UILabel *statusLabel;
@@ -27,6 +31,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *browseButton;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIView *chatView;
+
 @property (strong, nonatomic) MCSession *session;
 @property (strong, nonatomic) MCAdvertiserAssistant *assistant;
 @property (strong, nonatomic) MCBrowserViewController *browserVC;
@@ -50,48 +55,19 @@
     
     self.title = @"Chat";
     
-    // Do any additional setup after loading the view, typically from a nib.
-    //    self.textInput.delegate = self;
+    // Going to try and implement touch image for fullscreen.
+    isFullScreen = false;
+    tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imageTapped:)];
+    tap.delegate = self;
+    tap.numberOfTapsRequired = 1;
+    
     [self setUIToNotConnectedState];
-    //    originalViewFrame = self.view.frame;
-     
-    ImageBubbleView *chatImageRecieved =
-    [[ImageBubbleView alloc] initWithImage:[UIImage imageNamed:@"YouDontSay"] withDirection:ViewLeft atSize:IMAGE_SIZE];
-     
-    [chatImageRecieved sizeToFit];
-    chatImageRecieved.frame = CGRectMake(MARGIN, MARGIN, chatImageRecieved.frame.size.width, chatImageRecieved.frame.size.height);
-    lastMessageY = chatImageRecieved.frame.size.height + chatImageRecieved.frame.origin.y;
-     
-    [self.scrollView addSubview:chatImageRecieved];
     
-    ImageBubbleView *chatImageSent =
-    [[ImageBubbleView alloc] initWithImage:[UIImage imageNamed:@"AintNobody"] withDirection:ViewRight atSize:IMAGE_SIZE];
-    
-    [chatImageSent sizeToFit];
-    chatImageSent.frame = CGRectMake(SENDX, lastMessageY + MARGIN, chatImageSent.frame.size.width, chatImageSent.frame.size.height);
-    lastMessageY = chatImageSent.frame.size.height + chatImageSent.frame.origin.y;
+    lastMessageY = 0; // lastMessage on screens Y + it's height coordinate. 
 
-    [self.scrollView addSubview:chatImageSent];
-    
-    ImageBubbleView *chatImageSent2 =
-    [[ImageBubbleView alloc] initWithImage:[UIImage imageNamed:@"AintNobody"] withDirection:ViewRight atSize:IMAGE_SIZE];
-    
-    [chatImageSent2 sizeToFit];
-    chatImageSent2.frame = CGRectMake(SENDX, lastMessageY + MARGIN, chatImageSent2.frame.size.width, chatImageSent2.frame.size.height);
-    lastMessageY = chatImageSent2.frame.size.height + chatImageSent2.frame.origin.y;
-
-    [self.scrollView addSubview:chatImageSent2];
-    
-    ImageBubbleView *chatImageRecieved2 =
-    [[ImageBubbleView alloc] initWithImage:[UIImage imageNamed:@"YouDontSay"] withDirection:ViewLeft atSize:IMAGE_SIZE];
-    
-    [chatImageRecieved2 sizeToFit];
-    chatImageRecieved2.frame = CGRectMake(MARGIN, lastMessageY + MARGIN, chatImageRecieved2.frame.size.width, chatImageRecieved2.frame.size.height);
-    lastMessageY = chatImageRecieved2.frame.size.height + chatImageRecieved2.frame.origin.y;
-    
-    [self.scrollView addSubview:chatImageRecieved2];
-    
-    self.scrollView.contentSize = CGSizeMake(320, 1000);
+    viewWidth = 320;
+    viewHeight = 500;
+    self.scrollView.contentSize = CGSizeMake(viewWidth, viewHeight);
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWillShow:)
@@ -183,18 +159,26 @@
 // Received data from remote peer
 - (void)session:(MCSession *)session didReceiveData:(NSData *)data fromPeer:(MCPeerID *)peerID
 {
-//    NSString *str = [[NSString alloc] initWithData:data
-//                                          encoding:NSASCIIStringEncoding];
     NSLog(@"Received data.");
-//    if ([str hasPrefix:@"\x04\vstreamtype"])
-//        str = @"call established";
-//    NSString *tempStr = [NSString stringWithFormat:@"%@\nMsg from %@: %@",
-//                         self.textView.text,
-//                         peerID.displayName,
-//                         str];
-    dispatch_async(dispatch_get_main_queue(), ^{
-//        self.textView.text = tempStr;
-    });
+    
+    UIImage *image = [UIImage imageWithData:data];
+    UIImage *smallerImage = [self rescaleImage:image toSize:CGSizeMake(150,150)];
+
+    ImageBubbleView *chatImageRecieved =
+    [[ImageBubbleView alloc] initWithImage:smallerImage withDirection:ViewLeft atSize:IMAGE_SIZE];
+    
+    [chatImageRecieved sizeToFit];
+    chatImageRecieved.frame = CGRectMake(MARGIN, lastMessageY + MARGIN, chatImageRecieved.frame.size.width, chatImageRecieved.frame.size.height);
+    lastMessageY = chatImageRecieved.frame.size.height + chatImageRecieved.frame.origin.y;
+    
+    if (lastMessageY >= viewHeight) {
+        viewHeight += lastMessageY;
+        self.scrollView.contentSize = CGSizeMake(viewWidth, viewHeight);
+    }
+    [chatImageRecieved addGestureRecognizer:tap];
+    chatImageRecieved.userInteractionEnabled = YES;
+    [self.scrollView addSubview:chatImageRecieved];
+    
 }
 
 // Received a byte stream from remote peer
@@ -255,8 +239,21 @@
     self.view.frame = originalViewFrame;
 }
 
+- (UIImage *)rescaleImage:(UIImage *) image toSize:(CGSize)newSize{
+    
+    UIGraphicsBeginImageContext(newSize);
+    [image drawInRect:CGRectMake(0, 0, newSize.width, newSize.height)];
+    UIImage* newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return newImage;
+}
+
 - (void)dataFromPhotoViewController:(UIImage *)image{
     NSLog(@"Started from photos now we're here");
+    
+//    UIImage *smallerImage = [self rescaleImage:image toSize:CGSizeMake(150,150)];
+    
     ImageBubbleView *chatImageToSend =
     [[ImageBubbleView alloc] initWithImage:image withDirection:ViewRight atSize:IMAGE_SIZE];
     
@@ -264,17 +261,53 @@
     chatImageToSend.frame = CGRectMake(SENDX, lastMessageY + MARGIN, chatImageToSend .frame.size.width, chatImageToSend.frame.size.height);
     lastMessageY = chatImageToSend.frame.size.height + chatImageToSend.frame.origin.y;
     
+    if (lastMessageY >= viewHeight) {
+        viewHeight += lastMessageY;
+        self.scrollView.contentSize = CGSizeMake(viewWidth, viewHeight);
+    }
+    [chatImageToSend addGestureRecognizer:tap];
+    chatImageToSend.userInteractionEnabled = YES;
     [self.scrollView addSubview:chatImageToSend];
     
     NSArray *peerIDs = session.connectedPeers;
-    NSString *str = self.textInput.text;
-    [self.session sendData:[str dataUsingEncoding:NSASCIIStringEncoding]
-                    toPeers:peerIDs
-                    withMode:MCSessionSendDataReliable error:nil];
-    self.textInput.text = @"";
-    [self.textInput resignFirstResponder];
-    // echo in the local text view
-    self.textView.text = [NSString stringWithFormat:@"%@\n> %@", self.textView.text, str];
+    NSData *jpeg = UIImageJPEGRepresentation(image, .2);
+    [self.session sendData:jpeg toPeers:peerIDs withMode:MCSessionSendDataReliable error:nil];
+}
+
+//- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch{
+//    BOOL shouldRecieveTouch = YES;
+//    
+//    CGPoint location = [gestureRecognizer locationOfTouch:1 inView:self.view];
+//    NSLog(@"location %f %f", location.x, location.y);
+//    
+//    if (gestureRecognizer == tap) {
+//        shouldRecieveTouch = (touch.view == self.view);
+//    }
+//    
+//    return shouldRecieveTouch;
+//}
+
+
+// Tapped image should go to full screen size
+- (void)imageTapped:(UITapGestureRecognizer *)sender{
+    NSLog(@"ImageTapped");
+    UIView *touchedView = (UIView *)sender.view;
+    if (!isFullScreen) {
+        [UIView animateWithDuration:0.5 delay:0 options:0 animations:^{
+            // save frame
+            prevFrame = touchedView.frame;
+            [touchedView setFrame:self.navigationController.view.frame];
+        }completion:^(BOOL finished){
+            isFullScreen = true;
+        }];
+        return;
+    } else {
+        [UIView animateWithDuration:0.5 delay:0 options:0 animations:^{
+            [touchedView setFrame:prevFrame];
+        }completion:^(BOOL finished){
+            isFullScreen = false;
+        }];
+    }
 }
 
 @end

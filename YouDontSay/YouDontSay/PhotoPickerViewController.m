@@ -19,6 +19,7 @@
     
     self.title = @"Photos";
     self.view.backgroundColor = [UIColor whiteColor];
+    self.editPhotoBtn.enabled = NO;
 }
 
 -(IBAction) getPhoto:(id) sender {
@@ -32,6 +33,16 @@
     }
     
     [self presentModalViewController:picker animated:YES];
+}
+
+- (IBAction)editButtonTapped:(id)sender; {
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    self.addTextVC = [storyboard instantiateViewControllerWithIdentifier:@"TextAddViewController"];
+    self.addTextVC.delegate = self;
+    
+    self.addTextVC.editImage = imageView.image;
+    
+    [self.navigationController pushViewController:self.addTextVC animated:YES];
 }
 
 -(IBAction)sendPhoto:(id)sender{
@@ -55,6 +66,14 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     [picker dismissModalViewControllerAnimated:YES];
     imageView.image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
+    if (imageView.image != nil) {
+        self.editPhotoBtn.enabled = YES;
+    }
+}
+
+- (void)dataFromTextViewController:(UIImage *)image{
+    //Recieve Image back from TextAddViewController and set it to the imageView.
+    self.imageView.image = image;
 }
 
 @end
