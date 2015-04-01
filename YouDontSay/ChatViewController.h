@@ -8,10 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import <MultipeerConnectivity/MultipeerConnectivity.h>
+#import "PhotoPickerViewController.h"
 
 #define SERVICE_TYPE @"YouDontSay"
 
-@interface ChatViewController : UIViewController <UITextFieldDelegate, MCSessionDelegate, MCBrowserViewControllerDelegate>
+@interface ChatViewController : UIViewController <UIScrollViewDelegate, MCSessionDelegate, MCBrowserViewControllerDelegate, ImageDelegate>
 
 @end
 

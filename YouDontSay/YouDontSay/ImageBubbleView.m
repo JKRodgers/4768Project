@@ -31,6 +31,11 @@
 
 #define TWO_THIRDS_OF_PORTRAIT_WIDTH (320.0f * 0.66f)
 
+- (CGSize)sizeThatFits:(CGSize)size
+{
+    return self.imageSize;
+}
+
 - (id) initWithImage:(UIImage *)image
    withDirection:(ViewDirection) direction
               atSize:(CGSize)size
@@ -42,7 +47,7 @@
         
         const UIImageOrientation bubbleOrientation = direction ? UIImageOrientationUpMirrored : UIImageOrientationUp;
         
-        const UIImage *resizableMaskImage = [[UIImage imageWithCGImage:[UIImage imageNamed:@"ImageSquare"].CGImage
+        const UIImage *resizableMaskImage = [[UIImage imageWithCGImage:[UIImage imageNamed:@"RoundSquare"].CGImage
                                                                  scale:1.0 orientation: bubbleOrientation] resizableImageWithCapInsets:insets resizingMode:UIImageResizingModeStretch];
         
         const UIImage *maskImageDrawnToSize = [resizableMaskImage renderAtSize:size];

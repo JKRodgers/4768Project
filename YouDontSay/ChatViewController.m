@@ -10,28 +10,31 @@
 #import "ImageBubbleView.h"
 
 #define MARGIN 10.0f
-#define IMAGE_SIZE CGSizeMake(100,100)
+#define IMAGE_SIZE CGSizeMake(150,150)
+#define RECIEVEDX 10.0f
+#define SENDX 160.0f
 
 @interface ChatViewController ()
 {
     CGRect originalViewFrame;
+    GLfloat lastMessageY;
+    
+    UIImageView *imageToSend;
 }
-@property (weak, nonatomic) IBOutlet UITextField *textInput;
+@property (weak, nonatomic) IBOutlet UIButton *sendButton;
 @property (weak, nonatomic) IBOutlet UILabel *statusLabel;
-@property (weak, nonatomic) IBOutlet UITextView *textView;
-@property (weak, nonatomic) IBOutlet UISwitch *chatSwitch;
 @property (weak, nonatomic) IBOutlet UIButton *disconnectButton;
 @property (weak, nonatomic) IBOutlet UIButton *browseButton;
-@property (weak, nonatomic) IBOutlet UIButton *sendButton;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet UIView *chatView;
 @property (strong, nonatomic) MCSession *session;
 @property (strong, nonatomic) MCAdvertiserAssistant *assistant;
 @property (strong, nonatomic) MCBrowserViewController *browserVC;
+@property (strong, nonatomic) PhotoPickerViewController *photoViewController;
 
-- (BOOL)textFieldShouldReturn:(UITextField *)textField;
 - (IBAction)browseButtonTapped:(UIButton *)sender;
 - (IBAction)disconnectButtonTapped:(UIButton *)sender;
-- (IBAction)sendButtonTapped:(UIButton *)sender;
-- (IBAction)clearButtonTapped:(UIButton *)sender;
+- (IBAction)sendButtonTapped:(id)sender;
 
 - (void)setUIToNotConnectedState;
 - (void)setUIToConnectedState;
@@ -44,6 +47,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.title = @"Chat";
+    
     // Do any additional setup after loading the view, typically from a nib.
     //    self.textInput.delegate = self;
     [self setUIToNotConnectedState];
@@ -53,17 +59,39 @@
     [[ImageBubbleView alloc] initWithImage:[UIImage imageNamed:@"YouDontSay"] withDirection:ViewLeft atSize:IMAGE_SIZE];
      
     [chatImageRecieved sizeToFit];
-    chatImageRecieved.frame = CGRectMake(MARGIN, 60 + MARGIN, chatImageRecieved.frame.size.width, chatImageRecieved.frame.size.height);
+    chatImageRecieved.frame = CGRectMake(MARGIN, MARGIN, chatImageRecieved.frame.size.width, chatImageRecieved.frame.size.height);
+    lastMessageY = chatImageRecieved.frame.size.height + chatImageRecieved.frame.origin.y;
      
-    [self.view addSubview:chatImageRecieved];
+    [self.scrollView addSubview:chatImageRecieved];
     
     ImageBubbleView *chatImageSent =
     [[ImageBubbleView alloc] initWithImage:[UIImage imageNamed:@"AintNobody"] withDirection:ViewRight atSize:IMAGE_SIZE];
     
     [chatImageSent sizeToFit];
-    chatImageSent.frame = CGRectMake(self.view.frame.size.width - chatImageRecieved.frame.size.width - MARGIN, chatImageRecieved.frame.origin.y + chatImageSent.bounds.size.height + MARGIN, chatImageSent.frame.size.width, chatImageSent.frame.size.height);
+    chatImageSent.frame = CGRectMake(SENDX, lastMessageY + MARGIN, chatImageSent.frame.size.width, chatImageSent.frame.size.height);
+    lastMessageY = chatImageSent.frame.size.height + chatImageSent.frame.origin.y;
+
+    [self.scrollView addSubview:chatImageSent];
     
-    [self.view addSubview:chatImageSent];
+    ImageBubbleView *chatImageSent2 =
+    [[ImageBubbleView alloc] initWithImage:[UIImage imageNamed:@"AintNobody"] withDirection:ViewRight atSize:IMAGE_SIZE];
+    
+    [chatImageSent2 sizeToFit];
+    chatImageSent2.frame = CGRectMake(SENDX, lastMessageY + MARGIN, chatImageSent2.frame.size.width, chatImageSent2.frame.size.height);
+    lastMessageY = chatImageSent2.frame.size.height + chatImageSent2.frame.origin.y;
+
+    [self.scrollView addSubview:chatImageSent2];
+    
+    ImageBubbleView *chatImageRecieved2 =
+    [[ImageBubbleView alloc] initWithImage:[UIImage imageNamed:@"YouDontSay"] withDirection:ViewLeft atSize:IMAGE_SIZE];
+    
+    [chatImageRecieved2 sizeToFit];
+    chatImageRecieved2.frame = CGRectMake(MARGIN, lastMessageY + MARGIN, chatImageRecieved2.frame.size.width, chatImageRecieved2.frame.size.height);
+    lastMessageY = chatImageRecieved2.frame.size.height + chatImageRecieved2.frame.origin.y;
+    
+    [self.scrollView addSubview:chatImageRecieved2];
+    
+    self.scrollView.contentSize = CGSizeMake(320, 1000);
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWillShow:)
@@ -90,16 +118,6 @@
 }
 
 #pragma mark
-#pragma mark <UITextFieldDelegate> methods
-
-- (BOOL)textFieldShouldReturn:(UITextField *)textField
-{
-    [self.textInput resignFirstResponder];
-    return YES;
-}
-
-
-#pragma mark
 #pragma mark selectors
 
 - (void)keyboardWillShow:(NSNotification *)notification
@@ -124,17 +142,13 @@
     return;
 }
 
-- (IBAction)sendButtonTapped:(UIButton *)sender {
-    NSArray *peerIDs = session.connectedPeers;
-    NSString *str = self.textInput.text;
-    [self.session sendData:[str dataUsingEncoding:NSASCIIStringEncoding]
-                   toPeers:peerIDs
-                  withMode:MCSessionSendDataReliable error:nil];
-    self.textInput.text = @"";
-    [self.textInput resignFirstResponder];
-    // echo in the local text view
-    self.textView.text = [NSString stringWithFormat:@"%@\n> %@", self.textView.text, str];
+- (IBAction)sendButtonTapped:(id)sender; {
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    self.photoViewController = [storyboard instantiateViewControllerWithIdentifier:@"PhotoPickerViewController"];
+    self.photoViewController.delegate = self;
+    [self.navigationController pushViewController:self.photoViewController animated:YES];
 }
+
 
 - (IBAction)browseButtonTapped:(id)sender {
     self.browserVC = [[MCBrowserViewController alloc] initWithServiceType:SERVICE_TYPE session:self.session];
@@ -148,7 +162,7 @@
 }
 
 - (IBAction)clearButtonTapped:(UIButton *)sender {
-    self.textView.text = @"";
+//    self.textView.text = @"";
 }
 
 #pragma mark
@@ -169,17 +183,17 @@
 // Received data from remote peer
 - (void)session:(MCSession *)session didReceiveData:(NSData *)data fromPeer:(MCPeerID *)peerID
 {
-    NSString *str = [[NSString alloc] initWithData:data
-                                          encoding:NSASCIIStringEncoding];
-    NSLog(@"Received data: %@", str);
-    if ([str hasPrefix:@"\x04\vstreamtype"])
-        str = @"call established";
-    NSString *tempStr = [NSString stringWithFormat:@"%@\nMsg from %@: %@",
-                         self.textView.text,
-                         peerID.displayName,
-                         str];
+//    NSString *str = [[NSString alloc] initWithData:data
+//                                          encoding:NSASCIIStringEncoding];
+    NSLog(@"Received data.");
+//    if ([str hasPrefix:@"\x04\vstreamtype"])
+//        str = @"call established";
+//    NSString *tempStr = [NSString stringWithFormat:@"%@\nMsg from %@: %@",
+//                         self.textView.text,
+//                         peerID.displayName,
+//                         str];
     dispatch_async(dispatch_get_main_queue(), ^{
-        self.textView.text = tempStr;
+//        self.textView.text = tempStr;
     });
 }
 
@@ -224,11 +238,9 @@
 
 - (void)setUIToNotConnectedState
 {
-    self.sendButton.enabled = NO;
+//    self.sendButton.enabled = NO;
     self.disconnectButton.enabled = NO;
     self.browseButton.enabled = YES;
-    [self.chatSwitch setOn:NO animated:YES];
-    self.chatSwitch.enabled = NO;
 }
 
 - (void)setUIToConnectedState
@@ -236,11 +248,33 @@
     self.sendButton.enabled = YES;
     self.disconnectButton.enabled = YES;
     self.browseButton.enabled = NO;
-    self.chatSwitch.enabled = YES;
 }
 
 - (void)resetView
 {
     self.view.frame = originalViewFrame;
 }
+
+- (void)dataFromPhotoViewController:(UIImage *)image{
+    NSLog(@"Started from photos now we're here");
+    ImageBubbleView *chatImageToSend =
+    [[ImageBubbleView alloc] initWithImage:image withDirection:ViewRight atSize:IMAGE_SIZE];
+    
+    [chatImageToSend sizeToFit];
+    chatImageToSend.frame = CGRectMake(SENDX, lastMessageY + MARGIN, chatImageToSend .frame.size.width, chatImageToSend.frame.size.height);
+    lastMessageY = chatImageToSend.frame.size.height + chatImageToSend.frame.origin.y;
+    
+    [self.scrollView addSubview:chatImageToSend];
+    
+    NSArray *peerIDs = session.connectedPeers;
+    NSString *str = self.textInput.text;
+    [self.session sendData:[str dataUsingEncoding:NSASCIIStringEncoding]
+                    toPeers:peerIDs
+                    withMode:MCSessionSendDataReliable error:nil];
+    self.textInput.text = @"";
+    [self.textInput resignFirstResponder];
+    // echo in the local text view
+    self.textView.text = [NSString stringWithFormat:@"%@\n> %@", self.textView.text, str];
+}
+
 @end

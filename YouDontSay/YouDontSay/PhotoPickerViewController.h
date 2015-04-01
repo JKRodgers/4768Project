@@ -7,13 +7,18 @@
 //
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
-
+@protocol ImageDelegate <NSObject>
+- (void)dataFromPhotoViewController:(UIImage*) image;
+@end
 @interface PhotoPickerViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate> {
     UIImageView * imageView;
     UIButton * choosePhotoBtn;
     UIButton * takePhotoBtn;
+    
+    id <ImageDelegate> _delegate;
 }
 
+@property (nonatomic, strong) id delegate;
 @property (nonatomic, retain) IBOutlet UIImageView * imageView;
 @property (nonatomic, retain) IBOutlet UIButton * choosePhotoBtn;
 @property (nonatomic, retain) IBOutlet UIButton * takePhotoBtn;

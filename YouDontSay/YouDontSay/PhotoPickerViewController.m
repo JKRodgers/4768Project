@@ -7,10 +7,19 @@
 //
 
 #import "PhotoPickerViewController.h"
+#import "ChatViewController.h"
 
 @implementation PhotoPickerViewController
 
 @synthesize imageView,choosePhotoBtn, takePhotoBtn, sendPhotoBtn;
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    self.title = @"Photos";
+    self.view.backgroundColor = [UIColor whiteColor];
+}
 
 -(IBAction) getPhoto:(id) sender {
     UIImagePickerController * picker = [[UIImagePickerController alloc] init];
@@ -26,7 +35,21 @@
 }
 
 -(IBAction)sendPhoto:(id)sender{
-    //TODO
+    if ([_delegate respondsToSelector:@selector(dataFromPhotoViewController:)])
+    {
+        if (imageView.image != nil) {
+            NSLog(@"Sent data");
+            [_delegate dataFromPhotoViewController:imageView.image];
+        }
+        else{
+            NSLog(@"No photo to send");
+        }
+    }
+    else{
+        NSLog(@"No data");
+    }
+    
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
