@@ -58,27 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../../../../Users/labnet3/st3/jkr332/4768Project/YouDontSay/YouDontSay/TextAddViewController.m"
-            timestampString = "449601975.876315"
+            timestampString = "449677620.053812"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "26"
-            endingLineNumber = "26"
-            landmarkName = "-viewDidLoad"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../../../../Users/labnet3/st3/jkr332/4768Project/YouDontSay/YouDontSay/TextAddViewController.m"
-            timestampString = "449607973.548316"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
+            startingLineNumber = "99"
+            endingLineNumber = "99"
             landmarkName = "-drawText:inImage:atPoint:"
             landmarkType = "5">
          </BreakpointContent>

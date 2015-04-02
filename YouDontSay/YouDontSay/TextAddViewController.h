@@ -12,10 +12,14 @@
 @protocol MemeImageDelegate <NSObject>
 - (void)dataFromTextViewController:(UIImage*) image;
 @end
-@interface TextAddViewController : UIViewController <UITextFieldDelegate>{
+@interface TextAddViewController : UIViewController <UIAlertViewDelegate>{
     id <MemeImageDelegate> _delegate;
 }
 
+@property (weak, nonatomic) IBOutlet UILabel *topLabel;
+@property (weak, nonatomic) IBOutlet UILabel *bottomLabel;
+@property (weak, nonatomic) IBOutlet UIButton *editTopBtn;
+@property (weak, nonatomic) IBOutlet UIButton *editBottomBtn;
 @property (nonatomic, strong) id delegate;
 @property (weak, nonatomic) IBOutlet UITextField *topTextField;
 @property (weak, nonatomic) IBOutlet UITextField *bottomTextField;
