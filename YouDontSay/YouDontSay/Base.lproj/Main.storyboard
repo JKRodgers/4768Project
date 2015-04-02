@@ -138,10 +138,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yAE-6q-sjZ">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="539"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yAE-6q-sjZ">
+                                <rect key="frame" x="0.0" y="63" width="600" height="463"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BjR-oG-IAf">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BjR-oG-IAf">
                                 <rect key="frame" x="260" y="547" width="81" height="30"/>
                                 <state key="normal" title="Save Image">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -153,9 +153,25 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="BjR-oG-IAf" firstAttribute="centerX" secondItem="yAE-6q-sjZ" secondAttribute="centerX" constant="0.5" id="3Ax-1f-Ihd"/>
+                            <constraint firstAttribute="trailingMargin" relation="lessThanOrEqual" secondItem="BjR-oG-IAf" secondAttribute="trailing" constant="243" id="C4t-ny-dQY"/>
+                            <constraint firstItem="yAE-6q-sjZ" firstAttribute="top" secondItem="M08-nU-1Lb" secondAttribute="topMargin" id="L1K-nk-nc6"/>
+                            <constraint firstItem="BjR-oG-IAf" firstAttribute="leading" relation="lessThanOrEqual" secondItem="M08-nU-1Lb" secondAttribute="leadingMargin" constant="244" id="Lvh-aq-i7b"/>
+                            <constraint firstItem="yAE-6q-sjZ" firstAttribute="top" secondItem="TBp-rB-FYs" secondAttribute="bottom" constant="43" id="M3o-2q-EnD"/>
                             <constraint firstItem="Crd-GR-Pyv" firstAttribute="top" secondItem="BjR-oG-IAf" secondAttribute="bottom" constant="8" id="UaS-cv-bay"/>
                             <constraint firstItem="BjR-oG-IAf" firstAttribute="top" secondItem="yAE-6q-sjZ" secondAttribute="bottom" constant="8" id="YOC-80-FqY"/>
+                            <constraint firstItem="BjR-oG-IAf" firstAttribute="top" secondItem="yAE-6q-sjZ" secondAttribute="bottom" constant="8" id="Yei-hr-MBa"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="yAE-6q-sjZ" secondAttribute="trailing" constant="-16" id="muy-tQ-amq"/>
+                            <constraint firstItem="yAE-6q-sjZ" firstAttribute="leading" secondItem="M08-nU-1Lb" secondAttribute="leadingMargin" constant="-16" id="pkw-w0-J9c"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="L1K-nk-nc6"/>
+                                <exclude reference="C4t-ny-dQY"/>
+                                <exclude reference="Lvh-aq-i7b"/>
+                                <exclude reference="YOC-80-FqY"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="imageView" destination="yAE-6q-sjZ" id="vEq-db-icg"/>
@@ -164,7 +180,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vuP-9k-c2e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1074" y="-964"/>
+            <point key="canvasLocation" x="876" y="-632"/>
         </scene>
         <!--TextAddViewController-->
         <scene sceneID="s3J-RE-k2N">
@@ -288,7 +304,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R5M-HN-ABK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="900" y="-27"/>
+            <point key="canvasLocation" x="876" y="76"/>
         </scene>
         <!--PhotoPickerViewController-->
         <scene sceneID="WbZ-SP-7od">

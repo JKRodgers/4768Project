@@ -20,10 +20,6 @@
     GLfloat lastMessageY;
     GLfloat viewWidth;
     GLfloat viewHeight;
-    
-    UITapGestureRecognizer *tap;
-    BOOL isFullScreen;
-    CGRect prevFrame;
 }
 @property (weak, nonatomic) IBOutlet UIButton *sendButton;
 @property (weak, nonatomic) IBOutlet UILabel *statusLabel;
@@ -54,12 +50,6 @@
     [super viewDidLoad];
     
     self.title = @"Chat";
-    
-    // Going to try and implement touch image for fullscreen.
-    isFullScreen = false;
-    tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imageTapped:)];
-    tap.delegate = self;
-    tap.numberOfTapsRequired = 1;
     
     [self setUIToNotConnectedState];
     
@@ -162,10 +152,10 @@
     NSLog(@"Received data.");
     
     UIImage *image = [UIImage imageWithData:data];
-    UIImage *smallerImage = [self rescaleImage:image toSize:CGSizeMake(150,150)];
+//    UIImage *smallerImage = [self rescaleImage:image toSize:CGSizeMake(150,150)];
 
     ImageBubbleView *chatImageRecieved =
-    [[ImageBubbleView alloc] initWithImage:smallerImage withDirection:ViewLeft atSize:IMAGE_SIZE];
+    [[ImageBubbleView alloc] initWithImage:image withDirection:ViewLeft atSize:IMAGE_SIZE];
     
     [chatImageRecieved sizeToFit];
     chatImageRecieved.frame = CGRectMake(MARGIN, lastMessageY + MARGIN, chatImageRecieved.frame.size.width, chatImageRecieved.frame.size.height);
@@ -175,8 +165,12 @@
         viewHeight += lastMessageY;
         self.scrollView.contentSize = CGSizeMake(viewWidth, viewHeight);
     }
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imageTapped:)];
+    tap.delegate = self;
+    tap.numberOfTapsRequired = 1;
     [chatImageRecieved addGestureRecognizer:tap];
     chatImageRecieved.userInteractionEnabled = YES;
+    
     [self.scrollView addSubview:chatImageRecieved];
     
 }
@@ -265,8 +259,13 @@
         viewHeight += lastMessageY;
         self.scrollView.contentSize = CGSizeMake(viewWidth, viewHeight);
     }
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imageTapped:)];
+    tap.delegate = self;
+    tap.numberOfTapsRequired = 1;
     [chatImageToSend addGestureRecognizer:tap];
     chatImageToSend.userInteractionEnabled = YES;
+    
     [self.scrollView addSubview:chatImageToSend];
     
     NSArray *peerIDs = session.connectedPeers;
@@ -291,29 +290,15 @@
 // Tapped image should go to full screen size
 - (void)imageTapped:(UITapGestureRecognizer *)sender{
     NSLog(@"ImageTapped");
-    UIView *touchedView = (UIView *)sender.view;
+    
+    ImageBubbleView *touchedView = (ImageBubbleView *)sender.view;
+
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     self.viewImageVC = [storyboard instantiateViewControllerWithIdentifier:@"ViewImageViewController"];
-    //
-    self.viewImageVC.viewImage = touchedView; // Need to get UIImage from UIView!!!! Then Save image will work!
+    //Get Image from tapped ImageBubbleView
+    self.viewImageVC.viewImage = touchedView.image; 
     
     [self.navigationController pushViewController:self.viewImageVC animated:YES];
-//    if (!isFullScreen) {
-//        [UIView animateWithDuration:0.5 delay:0 options:0 animations:^{
-//            // save frame
-//            prevFrame = touchedView.frame;
-//            [touchedView setFrame:self.navigationController.view.frame];
-//        }completion:^(BOOL finished){
-//            isFullScreen = true;
-//        }];
-//        return;
-//    } else {
-//        [UIView animateWithDuration:0.5 delay:0 options:0 animations:^{
-//            [touchedView setFrame:prevFrame];
-//        }completion:^(BOOL finished){
-//            isFullScreen = false;
-//        }];
-//    }
 }
 
 @end
