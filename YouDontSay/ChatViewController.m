@@ -150,6 +150,13 @@
 - (void)session:(MCSession *)session didReceiveData:(NSData *)data fromPeer:(MCPeerID *)peerID
 {
     NSLog(@"Received data.");
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Image Recieved"
+                                                    message: [NSString stringWithFormat:@"Recieved Image from user %@", peerID.displayName]
+                                                   delegate:self
+                                          cancelButtonTitle:@"Okay"
+                                          otherButtonTitles:nil];
+    alert.alertViewStyle = UIAlertViewStyleDefault;
+    [alert show];
     
     UIImage *image = [UIImage imageWithData:data];
 //    UIImage *smallerImage = [self rescaleImage:image toSize:CGSizeMake(150,150)];

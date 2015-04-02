@@ -14,7 +14,7 @@
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>E654D9439D33EE53A9A9FAE38ACBB72389AEC0BE</key>
-		<string>../../st5/cjh260/4768Project</string>
+		<string>4768Project/</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/JKRodgers/4768Project.git</string>
@@ -24,14 +24,6 @@
 	<string>E654D9439D33EE53A9A9FAE38ACBB72389AEC0BE</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
-		<dict>
-			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
-			<string>public.vcs.git</string>
-			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>E654D9439D33EE53A9A9FAE38ACBB72389AEC0BE</string>
-			<key>IDESourceControlWCCName</key>
-			<string>4768Project</string>
-		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
