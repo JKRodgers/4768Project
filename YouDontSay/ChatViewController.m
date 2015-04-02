@@ -136,14 +136,22 @@
 // Remote peer changed state
 - (void)session:(MCSession *)session peer:(MCPeerID *)peerID didChangeState:(MCSessionState)state
 {
-    NSString *str = [NSString stringWithFormat:@"Status: %@", peerID.displayName];
+
     if (state == MCSessionStateConnected)
     {
-        self.statusLabel.text = [str stringByAppendingString:@" connected"];
+        self.title = [NSString stringWithFormat:@"Chat with: %@", peerID.displayName];
         [self setUIToConnectedState];
     }
-    else if (state == MCSessionStateNotConnected)
-        self.statusLabel.text = [str stringByAppendingString:@" not connected"];
+    else if (state == MCSessionStateNotConnected){
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"User Disconnected"
+                                                        message: [NSString stringWithFormat:@"User %@ disconnected.", peerID.displayName]
+                                                       delegate:self
+                                              cancelButtonTitle:@"Okay"
+                                              otherButtonTitles:nil];
+        alert.alertViewStyle = UIAlertViewStyleDefault;
+        [alert show];
+        self.title = @"Chat";
+    }
 }
 
 // Received data from remote peer
@@ -278,6 +286,13 @@
     NSArray *peerIDs = session.connectedPeers;
     NSData *jpeg = UIImageJPEGRepresentation(image, .2);
     [self.session sendData:jpeg toPeers:peerIDs withMode:MCSessionSendDataReliable error:nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Image Sent"
+                                                    message: [NSString stringWithFormat:@"Sending image to %lu connected users", (unsigned long)peerIDs.count]
+                                                   delegate:self
+                                          cancelButtonTitle:@"Okay"
+                                          otherButtonTitles:nil];
+    alert.alertViewStyle = UIAlertViewStyleDefault;
+    [alert show];
 }
 
 // Tapped image should go to full screen size

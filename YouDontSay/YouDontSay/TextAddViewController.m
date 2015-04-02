@@ -20,6 +20,8 @@
     self.title = @"Add Text";
     self.view.backgroundColor = [UIColor whiteColor];
     self.imageView.image = self.editImage;
+    self.topLabel.text = nil;
+    self.bottomLabel.text = nil;
     if (self.editImage == nil) {
         NSLog(@"Empty");
     }
@@ -67,7 +69,7 @@
     if ([_delegate respondsToSelector:@selector(dataFromTextViewController:)])
     {
         if (imageView.image != nil) {
-            NSLog(@"Sent data");
+            NSLog(@"Sending to PhotoPicker");
             // Add text to photo and send, Maybe add a "Are you sure?" prompt.
             
             // Get top point and draw top text.
