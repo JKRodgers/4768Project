@@ -36,28 +36,27 @@
 }
 
 - (id) initWithImage:(UIImage *)image
-   withDirection:(ViewDirection) direction
               atSize:(CGSize)size
 {
     if (self = [super init])
     {
         self.image = image;
+        self.originalImage = image;
         self.imageSize = size;
+        
         const UIEdgeInsets insets = UIEdgeInsetsMake(13, 13, 13, 21);
         
-        const UIImageOrientation bubbleOrientation = direction ? UIImageOrientationUpMirrored : UIImageOrientationUp;
-        
         const UIImage *resizableMaskImage = [[UIImage imageWithCGImage:[UIImage imageNamed:@"RoundSquare"].CGImage
-                                                                 scale:1.0 orientation: bubbleOrientation] resizableImageWithCapInsets:insets resizingMode:UIImageResizingModeStretch];
-        
+                                                                 scale:1.0 orientation: self.image.imageOrientation] resizableImageWithCapInsets:insets resizingMode:UIImageResizingModeTile];
         const UIImage *maskImageDrawnToSize = [resizableMaskImage renderAtSize:size];
         
         
         // masked image
         UIImageView *maskedImageView = [[UIImageView alloc] initWithImage:
                                         [image maskWithImage: maskImageDrawnToSize]];
-
-        [self addSubview:maskedImageView];
+        
+//        self = (ImageBubbleView *) maskedImageView;
+//        [self addSubview:maskedImageView];
     }
     
     return self;

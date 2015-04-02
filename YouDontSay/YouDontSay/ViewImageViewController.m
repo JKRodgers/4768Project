@@ -26,6 +26,7 @@
 }
 
 -(IBAction)saveImage:(id)sender{
+    NSLog(@"Trying to save");
     if (imageView.image != nil) {
         NSLog(@"Saved data");
         //save image to phone

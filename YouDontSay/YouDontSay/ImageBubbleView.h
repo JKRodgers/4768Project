@@ -8,18 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ImageBubbleView : UIView
+@interface ImageBubbleView : UIImageView
 
-typedef enum
-{
-    ViewRight = 0,
-    ViewLeft = 1
-} ViewDirection;
-
-@property (nonatomic, assign) UIImage *image;
+@property (strong, nonatomic) UIImage *originalImage;
 
 - (id) initWithImage:(UIImage *) image
-       withDirection:(ViewDirection) direction
               atSize:(CGSize) size;
 
 @end

@@ -12,7 +12,7 @@
 #define MARGIN 10.0f
 #define IMAGE_SIZE CGSizeMake(150,150)
 #define RECIEVEDX 10.0f
-#define SENDX 160.0f
+#define SENDX 170.0f
 
 @interface ChatViewController ()
 {
@@ -155,7 +155,7 @@
 //    UIImage *smallerImage = [self rescaleImage:image toSize:CGSizeMake(150,150)];
 
     ImageBubbleView *chatImageRecieved =
-    [[ImageBubbleView alloc] initWithImage:image withDirection:ViewLeft atSize:IMAGE_SIZE];
+    [[ImageBubbleView alloc] initWithImage:image atSize:IMAGE_SIZE];
     
     [chatImageRecieved sizeToFit];
     chatImageRecieved.frame = CGRectMake(MARGIN, lastMessageY + MARGIN, chatImageRecieved.frame.size.width, chatImageRecieved.frame.size.height);
@@ -249,10 +249,10 @@
 //    UIImage *smallerImage = [self rescaleImage:image toSize:CGSizeMake(150,150)];
     
     ImageBubbleView *chatImageToSend =
-    [[ImageBubbleView alloc] initWithImage:image withDirection:ViewRight atSize:IMAGE_SIZE];
+    [[ImageBubbleView alloc] initWithImage:image atSize:IMAGE_SIZE];
     
     [chatImageToSend sizeToFit];
-    chatImageToSend.frame = CGRectMake(SENDX, lastMessageY + MARGIN, chatImageToSend .frame.size.width, chatImageToSend.frame.size.height);
+    chatImageToSend.frame = CGRectMake(SENDX, lastMessageY + MARGIN, chatImageToSend.frame.size.width, chatImageToSend.frame.size.height);
     lastMessageY = chatImageToSend.frame.size.height + chatImageToSend.frame.origin.y;
     
     if (lastMessageY >= viewHeight) {
@@ -273,30 +273,16 @@
     [self.session sendData:jpeg toPeers:peerIDs withMode:MCSessionSendDataReliable error:nil];
 }
 
-//- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch{
-//    BOOL shouldRecieveTouch = YES;
-//    
-//    CGPoint location = [gestureRecognizer locationOfTouch:1 inView:self.view];
-//    NSLog(@"location %f %f", location.x, location.y);
-//    
-//    if (gestureRecognizer == tap) {
-//        shouldRecieveTouch = (touch.view == self.view);
-//    }
-//    
-//    return shouldRecieveTouch;
-//}
-
-
 // Tapped image should go to full screen size
 - (void)imageTapped:(UITapGestureRecognizer *)sender{
     NSLog(@"ImageTapped");
     
-    ImageBubbleView *touchedView = (ImageBubbleView *)sender.view;
+    UIImageView *touchedView = (UIImageView *)sender.view;
 
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     self.viewImageVC = [storyboard instantiateViewControllerWithIdentifier:@"ViewImageViewController"];
     //Get Image from tapped ImageBubbleView
-    self.viewImageVC.viewImage = touchedView.image; 
+    self.viewImageVC.viewImage = touchedView.image;
     
     [self.navigationController pushViewController:self.viewImageVC animated:YES];
 }
