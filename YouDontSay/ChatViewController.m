@@ -292,22 +292,28 @@
 - (void)imageTapped:(UITapGestureRecognizer *)sender{
     NSLog(@"ImageTapped");
     UIView *touchedView = (UIView *)sender.view;
-    if (!isFullScreen) {
-        [UIView animateWithDuration:0.5 delay:0 options:0 animations:^{
-            // save frame
-            prevFrame = touchedView.frame;
-            [touchedView setFrame:self.navigationController.view.frame];
-        }completion:^(BOOL finished){
-            isFullScreen = true;
-        }];
-        return;
-    } else {
-        [UIView animateWithDuration:0.5 delay:0 options:0 animations:^{
-            [touchedView setFrame:prevFrame];
-        }completion:^(BOOL finished){
-            isFullScreen = false;
-        }];
-    }
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    self.viewImageVC = [storyboard instantiateViewControllerWithIdentifier:@"ViewImageViewController"];
+    //
+    self.viewImageVC.viewImage = touchedView; // Need to get UIImage from UIView!!!! Then Save image will work!
+    
+    [self.navigationController pushViewController:self.viewImageVC animated:YES];
+//    if (!isFullScreen) {
+//        [UIView animateWithDuration:0.5 delay:0 options:0 animations:^{
+//            // save frame
+//            prevFrame = touchedView.frame;
+//            [touchedView setFrame:self.navigationController.view.frame];
+//        }completion:^(BOOL finished){
+//            isFullScreen = true;
+//        }];
+//        return;
+//    } else {
+//        [UIView animateWithDuration:0.5 delay:0 options:0 animations:^{
+//            [touchedView setFrame:prevFrame];
+//        }completion:^(BOOL finished){
+//            isFullScreen = false;
+//        }];
+//    }
 }
 
 @end

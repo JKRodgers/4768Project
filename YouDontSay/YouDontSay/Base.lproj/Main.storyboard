@@ -126,6 +126,46 @@
             </objects>
             <point key="canvasLocation" x="221" y="-632"/>
         </scene>
+        <!--ViewImageViewController-->
+        <scene sceneID="OM1-Tg-Wpu">
+            <objects>
+                <viewController storyboardIdentifier="ViewImageViewController" title="ViewImageViewController" id="Ujq-SF-siR" customClass="ViewImageViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="TBp-rB-FYs"/>
+                        <viewControllerLayoutGuide type="bottom" id="Crd-GR-Pyv"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="M08-nU-1Lb">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yAE-6q-sjZ">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="539"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BjR-oG-IAf">
+                                <rect key="frame" x="260" y="547" width="81" height="30"/>
+                                <state key="normal" title="Save Image">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveImage:" destination="Ujq-SF-siR" eventType="touchDragInside" id="7iO-sp-gmf"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Crd-GR-Pyv" firstAttribute="top" secondItem="BjR-oG-IAf" secondAttribute="bottom" constant="8" id="UaS-cv-bay"/>
+                            <constraint firstItem="BjR-oG-IAf" firstAttribute="top" secondItem="yAE-6q-sjZ" secondAttribute="bottom" constant="8" id="YOC-80-FqY"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="yAE-6q-sjZ" id="vEq-db-icg"/>
+                        <outlet property="saveBtn" destination="BjR-oG-IAf" id="i2E-pT-lcF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vuP-9k-c2e" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1074" y="-964"/>
+        </scene>
         <!--TextAddViewController-->
         <scene sceneID="s3J-RE-k2N">
             <objects>
