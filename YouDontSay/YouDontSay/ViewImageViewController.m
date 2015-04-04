@@ -17,14 +17,15 @@
 {
     [super viewDidLoad];
     
-    self.title = @"View Image";
+    self.title = @"View Image"; // set title
     self.view.backgroundColor = [UIColor whiteColor];
-    self.imageView.image = self.viewImage;
+    self.imageView.image = self.viewImage; // set image
     if (self.viewImage == nil) {
         NSLog(@"Empty");
     }
 }
 
+// if save button is clicked
 -(IBAction)saveImage:(id)sender{
     NSLog(@"Trying to save");
     if (imageView.image != nil) {

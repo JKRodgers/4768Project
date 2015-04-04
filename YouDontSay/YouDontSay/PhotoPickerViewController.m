@@ -17,11 +17,14 @@
 {
     [super viewDidLoad];
     
-    self.title = @"Photos";
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.title = @"Photos"; // set title
+    self.view.backgroundColor = [UIColor whiteColor]; // set background color
+    // set text when button is disabled
+    [self.editPhotoBtn setTitleColor:[UIColor grayColor] forState:UIControlStateDisabled];
     self.editPhotoBtn.enabled = NO;
 }
 
+// get photo button tapped
 -(IBAction) getPhoto:(id) sender {
     UIImagePickerController * picker = [[UIImagePickerController alloc] init];
     picker.delegate = self;
@@ -35,6 +38,7 @@
     [self presentModalViewController:picker animated:YES];
 }
 
+// edit button tapped
 - (IBAction)editButtonTapped:(id)sender; {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     self.addTextVC = [storyboard instantiateViewControllerWithIdentifier:@"TextAddViewController"];
@@ -45,6 +49,8 @@
     [self.navigationController pushViewController:self.addTextVC animated:YES];
 }
 
+
+// send photo to the chat view
 -(IBAction)sendPhoto:(id)sender{
     if ([_delegate respondsToSelector:@selector(dataFromPhotoViewController:)])
     {

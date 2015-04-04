@@ -9,23 +9,16 @@
 /* Begin PBXBuildFile section */
 		6B0ED1C41ACC357400C15E47 /* TextAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B0ED1C31ACC357400C15E47 /* TextAddViewController.m */; };
 		6B0ED1C61ACC76C900C15E47 /* Image.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6B0ED1C51ACC76C900C15E47 /* Image.plist */; };
-		6B33AC5A1AC9E292006F4A6C /* YouDontSay.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B33AC591AC9E292006F4A6C /* YouDontSay.png */; };
 		6B33AC5D1AC9E32E006F4A6C /* ImageBubbleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B33AC5C1AC9E32E006F4A6C /* ImageBubbleView.m */; };
-		6B33AC601AC9E344006F4A6C /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B33AC5F1AC9E344006F4A6C /* Utils.m */; };
-		6B33AC641AC9FEFE006F4A6C /* icon-X3.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B33AC631AC9FEFE006F4A6C /* icon-X3.png */; };
-		6B33AC661AC9FF04006F4A6C /* iconx2.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B33AC651AC9FF04006F4A6C /* iconx2.png */; };
-		6B33AC681AC9FF0A006F4A6C /* icon-58.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B33AC671AC9FF0A006F4A6C /* icon-58.png */; };
-		6B33AC6A1ACA03B9006F4A6C /* AintNobody.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B33AC691ACA03B9006F4A6C /* AintNobody.png */; };
 		6B393BE81ACB00BB00E5F514 /* PhotoPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B393BE71ACB00BB00E5F514 /* PhotoPickerViewController.m */; };
-		6B393BEA1ACB357400E5F514 /* RoundSquare.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B393BE91ACB357400E5F514 /* RoundSquare.png */; };
 		6B90ED0C1AC4937F0082361F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B90ED0B1AC4937F0082361F /* main.m */; };
 		6B90ED0F1AC4937F0082361F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B90ED0E1AC4937F0082361F /* AppDelegate.m */; };
 		6B90ED181AC4937F0082361F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B90ED161AC4937F0082361F /* Main.storyboard */; };
 		6B90ED1A1AC493800082361F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6B90ED191AC493800082361F /* Images.xcassets */; };
 		6B90ED1D1AC493800082361F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B90ED1B1AC493800082361F /* LaunchScreen.xib */; };
 		6B90ED291AC493800082361F /* YouDontSayTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B90ED281AC493800082361F /* YouDontSayTests.m */; };
+		6BC3B9821AD0A3250042A0B5 /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BC3B9811AD0A3250042A0B5 /* ChatViewController.m */; };
 		6BCD28531ACD7291009AD82C /* ViewImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BCD28521ACD7291009AD82C /* ViewImageViewController.m */; };
-		6BD423481AC9ACBC00338801 /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BD423471AC9ACBC00338801 /* ChatViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,18 +35,10 @@
 		6B0ED1C21ACC356000C15E47 /* TextAddViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TextAddViewController.h; path = ../../../../../../../Users/labnet3/st3/jkr332/4768Project/YouDontSay/YouDontSay/TextAddViewController.h; sourceTree = "<group>"; };
 		6B0ED1C31ACC357400C15E47 /* TextAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TextAddViewController.m; path = ../../../../../../../Users/labnet3/st3/jkr332/4768Project/YouDontSay/YouDontSay/TextAddViewController.m; sourceTree = "<group>"; };
 		6B0ED1C51ACC76C900C15E47 /* Image.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Image.plist; path = ../../../../../../../Users/labnet3/st3/jkr332/4768Project/YouDontSay/YouDontSay/Image.plist; sourceTree = "<group>"; };
-		6B33AC591AC9E292006F4A6C /* YouDontSay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = YouDontSay.png; sourceTree = "<group>"; };
 		6B33AC5B1AC9E324006F4A6C /* ImageBubbleView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageBubbleView.h; sourceTree = "<group>"; };
 		6B33AC5C1AC9E32E006F4A6C /* ImageBubbleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageBubbleView.m; sourceTree = "<group>"; };
-		6B33AC5E1AC9E33E006F4A6C /* Utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
-		6B33AC5F1AC9E344006F4A6C /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
-		6B33AC631AC9FEFE006F4A6C /* icon-X3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-X3.png"; sourceTree = "<group>"; };
-		6B33AC651AC9FF04006F4A6C /* iconx2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconx2.png; sourceTree = "<group>"; };
-		6B33AC671AC9FF0A006F4A6C /* icon-58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-58.png"; sourceTree = "<group>"; };
-		6B33AC691ACA03B9006F4A6C /* AintNobody.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AintNobody.png; sourceTree = "<group>"; };
 		6B393BE61ACB00AF00E5F514 /* PhotoPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhotoPickerViewController.h; path = ../../../../../../../Users/labnet3/st3/jkr332/4768Project/YouDontSay/YouDontSay/PhotoPickerViewController.h; sourceTree = "<group>"; };
 		6B393BE71ACB00BB00E5F514 /* PhotoPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PhotoPickerViewController.m; path = ../../../../../../../Users/labnet3/st3/jkr332/4768Project/YouDontSay/YouDontSay/PhotoPickerViewController.m; sourceTree = "<group>"; };
-		6B393BE91ACB357400E5F514 /* RoundSquare.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RoundSquare.png; sourceTree = "<group>"; };
 		6B90ED061AC4937F0082361F /* YouDontSay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YouDontSay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B90ED0A1AC4937F0082361F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6B90ED0B1AC4937F0082361F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -65,10 +50,10 @@
 		6B90ED221AC493800082361F /* YouDontSayTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YouDontSayTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B90ED271AC493800082361F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6B90ED281AC493800082361F /* YouDontSayTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YouDontSayTests.m; sourceTree = "<group>"; };
+		6BC3B9801AD0A3250042A0B5 /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChatViewController.h; path = /Users/labnet3/st3/jkr332/4768Project/YouDontSay/YouDontSay/ChatViewController.h; sourceTree = "<absolute>"; };
+		6BC3B9811AD0A3250042A0B5 /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChatViewController.m; path = /Users/labnet3/st3/jkr332/4768Project/YouDontSay/YouDontSay/ChatViewController.m; sourceTree = "<absolute>"; };
 		6BCD28511ACD715F009AD82C /* ViewImageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ViewImageViewController.h; path = ../../../../../../../Users/labnet3/st3/jkr332/4768Project/YouDontSay/YouDontSay/ViewImageViewController.h; sourceTree = "<group>"; };
 		6BCD28521ACD7291009AD82C /* ViewImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewImageViewController.m; path = /Users/labnet3/st3/jkr332/4768Project/YouDontSay/YouDontSay/ViewImageViewController.m; sourceTree = "<absolute>"; };
-		6BD423461AC9ACBC00338801 /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChatViewController.h; path = ../ChatViewController.h; sourceTree = "<group>"; };
-		6BD423471AC9ACBC00338801 /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChatViewController.m; path = ../ChatViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,23 +74,9 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		6B33AC561AC9E27A006F4A6C /* img */ = {
-			isa = PBXGroup;
-			children = (
-				6B393BE91ACB357400E5F514 /* RoundSquare.png */,
-				6B33AC591AC9E292006F4A6C /* YouDontSay.png */,
-				6B33AC691ACA03B9006F4A6C /* AintNobody.png */,
-				6B33AC631AC9FEFE006F4A6C /* icon-X3.png */,
-				6B33AC651AC9FF04006F4A6C /* iconx2.png */,
-				6B33AC671AC9FF0A006F4A6C /* icon-58.png */,
-			);
-			name = img;
-			sourceTree = "<group>";
-		};
 		6B90ECFD1AC4937F0082361F = {
 			isa = PBXGroup;
 			children = (
-				6B33AC561AC9E27A006F4A6C /* img */,
 				6B90ED081AC4937F0082361F /* YouDontSay */,
 				6B90ED251AC493800082361F /* YouDontSayTests */,
 				6B90ED071AC4937F0082361F /* Products */,
@@ -126,18 +97,16 @@
 			children = (
 				6B90ED0D1AC4937F0082361F /* AppDelegate.h */,
 				6B90ED0E1AC4937F0082361F /* AppDelegate.m */,
+				6BC3B9801AD0A3250042A0B5 /* ChatViewController.h */,
+				6BC3B9811AD0A3250042A0B5 /* ChatViewController.m */,
 				6B33AC5B1AC9E324006F4A6C /* ImageBubbleView.h */,
 				6B33AC5C1AC9E32E006F4A6C /* ImageBubbleView.m */,
-				6B33AC5E1AC9E33E006F4A6C /* Utils.h */,
-				6B33AC5F1AC9E344006F4A6C /* Utils.m */,
-				6BD423461AC9ACBC00338801 /* ChatViewController.h */,
-				6BD423471AC9ACBC00338801 /* ChatViewController.m */,
-				6B393BE71ACB00BB00E5F514 /* PhotoPickerViewController.m */,
 				6B393BE61ACB00AF00E5F514 /* PhotoPickerViewController.h */,
+				6B393BE71ACB00BB00E5F514 /* PhotoPickerViewController.m */,
 				6B0ED1C21ACC356000C15E47 /* TextAddViewController.h */,
 				6B0ED1C31ACC357400C15E47 /* TextAddViewController.m */,
-				6BCD28521ACD7291009AD82C /* ViewImageViewController.m */,
 				6BCD28511ACD715F009AD82C /* ViewImageViewController.h */,
+				6BCD28521ACD7291009AD82C /* ViewImageViewController.m */,
 				6B90ED161AC4937F0082361F /* Main.storyboard */,
 				6B90ED191AC493800082361F /* Images.xcassets */,
 				6B90ED1B1AC493800082361F /* LaunchScreen.xib */,
@@ -253,16 +222,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6B33AC6A1ACA03B9006F4A6C /* AintNobody.png in Resources */,
-				6B33AC661AC9FF04006F4A6C /* iconx2.png in Resources */,
 				6B90ED181AC4937F0082361F /* Main.storyboard in Resources */,
-				6B393BEA1ACB357400E5F514 /* RoundSquare.png in Resources */,
 				6B0ED1C61ACC76C900C15E47 /* Image.plist in Resources */,
 				6B90ED1D1AC493800082361F /* LaunchScreen.xib in Resources */,
-				6B33AC681AC9FF0A006F4A6C /* icon-58.png in Resources */,
-				6B33AC5A1AC9E292006F4A6C /* YouDontSay.png in Resources */,
 				6B90ED1A1AC493800082361F /* Images.xcassets in Resources */,
-				6B33AC641AC9FEFE006F4A6C /* icon-X3.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,8 +248,7 @@
 				6B90ED0F1AC4937F0082361F /* AppDelegate.m in Sources */,
 				6B393BE81ACB00BB00E5F514 /* PhotoPickerViewController.m in Sources */,
 				6B33AC5D1AC9E32E006F4A6C /* ImageBubbleView.m in Sources */,
-				6B33AC601AC9E344006F4A6C /* Utils.m in Sources */,
-				6BD423481AC9ACBC00338801 /* ChatViewController.m in Sources */,
+				6BC3B9821AD0A3250042A0B5 /* ChatViewController.m in Sources */,
 				6B90ED0C1AC4937F0082361F /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
